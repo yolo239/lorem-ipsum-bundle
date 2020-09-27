@@ -3,7 +3,6 @@
 // Usually vendor namespace
 namespace KnpU\LoremIpsumBundle;
 
-
 use KnpU\LoremIpsumBundle\DependencyInjection\KnpULoremIpsumExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

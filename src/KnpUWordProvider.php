@@ -1,8 +1,6 @@
 <?php
 
-
 namespace KnpU\LoremIpsumBundle;
-
 
 class KnpUWordProvider implements WordProviderInterface
 {

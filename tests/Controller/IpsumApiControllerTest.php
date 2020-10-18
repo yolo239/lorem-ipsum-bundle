@@ -4,6 +4,7 @@ namespace KnpU\LoremIpsumBundle\Tests\Controller;
 
 use KnpU\LoremIpsumBundle\KnpULoremIpsumBundle;
 use PHPUnit\Framework\TestCase;
+use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -17,9 +18,8 @@ class IpsumApiControllerTest extends TestCase
     {
         $kernel = new KnpULoremIpsumControllerKernel();
         $client = new Client($kernel);
-        $client->getRequest()->get('/api/');
+        $client->request('GET', '/api/');
 
-        var_dump($client->getResponse()->getContent());
         $this->assertSame(200, $client->getResponse()->getStatusCode());
 
     }
@@ -38,6 +38,7 @@ class KnpULoremIpsumControllerKernel extends Kernel {
     {
         return [
             new KnpULoremIpsumBundle(),
+            new FrameworkBundle(),
         ];
     }
 

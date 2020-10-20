@@ -1,6 +1,6 @@
 <?php
 
-// Usually vendor namespace
+// Usually vendor namespace - hello packagist
 namespace KnpU\LoremIpsumBundle;
 
 use KnpU\LoremIpsumBundle\DependencyInjection\Compiler\WordProviderCompilerPass;

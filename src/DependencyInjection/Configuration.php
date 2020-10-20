@@ -28,9 +28,6 @@ class Configuration implements ConfigurationInterface
                 ->defaultValue(3)
                 ->info('How much do you like sunshine?')
             ->end()
-            ->scalarNode('word_provider') // this is a string
-                ->defaultNull()
-            ->end()
         ;
 
         return $treeBuilder;

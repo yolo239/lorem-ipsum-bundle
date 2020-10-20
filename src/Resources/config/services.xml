@@ -6,18 +6,20 @@
 
     <services>
         <!-- Explicitly configure the service -->
-        <service id="knpu_lorem_ipsum.knp_uipsum" class="KnpU\LoremIpsumBundle\KnpUIpsum" public="true">
-                <argument type="service" id="knpu_lorem_ipsum.word_provider" />
+        <service id="knpu_lorem_ipsum.knpu_ipsum" class="KnpU\LoremIpsumBundle\KnpUIpsum" public="true">
+            <argument type="collection" /> <!-- filled in via a compiler pass -->
+        </service>
+
+        <service id="knpu_lorem_ipsum.knp_word_provider" class="KnpU\LoremIpsumBundle\KnpUWordProvider" public="true">
+            <tag name="knpu_ipsum_word_provider" />
         </service>
 
         <service id="knpu_lorem_ipsum.api.controller" class="KnpU\LoremIpsumBundle\Controller\IpsumApiController" public="true">
-            <argument type="service" id="knpu_lorem_ipsum.knp_uipsum" />
+            <argument type="service" id="knpu_lorem_ipsum.knpu_ipsum" />
             <argument type="service" id="event_dispatcher" on-invalid="null"/>
         </service>
 
-        <service id="knpu_lorem_ipsum.knp_word_provider" class="KnpU\LoremIpsumBundle\KnpUWordProvider" public="false" />
-
         <service id="knpu_lorem_ipsum.word_provider" alias="knpu_lorem_ipsum.knp_word_provider" public="false" />
-        <service id="KnpU\LoremIpsumBundle\KnpUIpsum" alias="knpu_lorem_ipsum.knp_uipsum" public="false" />
+        <service id="KnpU\LoremIpsumBundle\KnpUIpsum" alias="knpu_lorem_ipsum.knpu_ipsum" public="false" />
     </services>
 </container>
